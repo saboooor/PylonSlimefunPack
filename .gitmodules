@@ -1,0 +1,3 @@
+[submodule "pylon-resource-pack"]
+	path = pylon-resource-pack
+	url = https://github.com/pylonmc/pylon-resource-pack
