@@ -111,6 +111,27 @@ fs.readdirSync(pylonItemsPath).forEach(file => {
 
 console.log('Merged all item models');
 
+// merge atlases
+const pylonBlockAtlas = `${pylonPackPath}/assets/minecraft/atlases/blocks.json`;
+const slimefunBlockAtlas = `${slimefunPackPath}/assets/minecraft/atlases/blocks.json`;
+
+const pylonBlockAtlasJSON = JSON.parse(fs.readFileSync(pylonBlockAtlas, 'utf-8'));
+const slimefunBlockAtlasJSON = JSON.parse(fs.readFileSync(slimefunBlockAtlas, 'utf-8'));
+
+const mergedBlockAtlas = {
+  sources: [
+    ...slimefunBlockAtlasJSON.sources,
+    ...pylonBlockAtlasJSON.sources,
+  ],
+};
+
+// create merged atlases folder in merged pack
+const mergedAtlasesPath = `${mergedPackPath}/pylon_slimefun_merge/assets/minecraft/atlases`;
+fs.mkdirSync(mergedAtlasesPath, { recursive: true });
+
+fs.writeFileSync(`${mergedAtlasesPath}/blocks.json`, JSON.stringify(mergedBlockAtlas, null, 2));
+console.log('Merged block atlas');
+
 // zip merged pack
 const output = fs.createWriteStream('PylonSlimefun.zip');
 const archive = archiver('zip', { zlib: { level: 9 }});
