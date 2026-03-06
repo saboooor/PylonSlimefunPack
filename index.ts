@@ -66,7 +66,7 @@ fs.writeFileSync(`${mergedPackPath}/pack.mcmeta`, JSON.stringify(mergedMcmeta, n
 console.log('Merged pack.mcmeta');
 
 // copy pack.png from root to merged pack
-fs.copyFileSync(`${pylonPackPath}/pack.png`, `${mergedPackPath}/pack.png`);
+fs.copyFileSync(`./pack.png`, `${mergedPackPath}/pack.png`);
 console.log('Copied ./pack.png to merged pack');
 
 // go through all the files in pylon pack item assets and merge them
