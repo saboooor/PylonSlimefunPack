@@ -1,3 +1,5 @@
+![](https://github.com/saboooor/PylonSlimefunPack/blob/main/pack.png?raw=true)
+
 # Pylon + Slimefun Merge
 
 This repo merges slimefun pack and pylon pack to work together
