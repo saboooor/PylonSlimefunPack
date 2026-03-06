@@ -1,15 +1,14 @@
-# pylonslimefunpack
+# Pylon + Slimefun Merge
 
-To install dependencies:
+This repo merges slimefun pack and pylon pack to work together
 
-```bash
-bun install
-```
+Instructions:
+1. `cd pylon-resource-pack`
+2. `python resource_pack_generator.py`
+3. `cd ..`
+3. `bun install`
+4. `bun .`
 
-To run:
+you can prob just use npm instead of bun if you dont have it installed already
 
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.3.10. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+this pack also lowers the pack version from 75 to 55 to be compatible with viaversion
