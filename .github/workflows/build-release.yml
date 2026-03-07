@@ -27,14 +27,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           submodules: recursive
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
+          python-version: "3.14"
 
       - name: Build Pylon resource pack
         working-directory: pylon-resource-pack
@@ -48,10 +48,10 @@ jobs:
       
       # Push artifacts to GitHub actions
       - name: Upload resource pack artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: PylonSlimefun
-          path: PylonSlimefun/
+          path: PylonSlimefun.zip
+          archive: false
 
       - name: Upload release asset
         run: gh release upload ${{ needs.release.outputs.tag_name }} PylonSlimefun.zip
