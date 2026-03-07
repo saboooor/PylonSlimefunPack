@@ -59,6 +59,6 @@ jobs:
       - name: Upload release asset
         # Use the GitHub CLI to upload the file to the newly created release
         run: |
-          gh release upload ${{ needs.release-please.outputs.tag_name }} PylonSlimefun.zip
+          gh release upload ${{ needs.release.outputs.tag_name }} PylonSlimefun.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # The built-in token has permission for this
