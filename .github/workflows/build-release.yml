@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
 
     steps:
       - id: release
@@ -55,7 +56,9 @@ jobs:
           name: PylonSlimefun
           path: PylonSlimefun/
 
-      - name: Upload zip to release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: PylonSlimefun.zip
+      - name: Upload release asset
+        # Use the GitHub CLI to upload the file to the newly created release
+        run: |
+          gh release upload ${{ needs.release-please.outputs.tag_name }} PylonSlimefun.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # The built-in token has permission for this
