@@ -24,7 +24,7 @@ jobs:
           cache: 'pip' # Caches dependencies for faster runs
 
       - name: Build Pylon resource pack
-        working-directory: ./pylon-resource-pack
+        working-directory: pylon-resource-pack
         run: |
           python resource_pack_generator.py
 
