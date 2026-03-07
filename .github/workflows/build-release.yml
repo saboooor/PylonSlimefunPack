@@ -1,0 +1,31 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Build resource pack
+        run: bun .
+      
+      # Push artifacts to GitHub actions
+      - name: Upload resource pack artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PylonSlimefun.zip
+          path: PylonSlimefun.zip
