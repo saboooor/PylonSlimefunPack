@@ -17,6 +17,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip' # Caches dependencies for faster runs
+
+      - name: Build Pylon resource pack
+        working-directory: ./pylon-resource-pack
+        run: |
+          python resource_pack_generator.py
+
       - name: Setup bun
         uses: oven-sh/setup-bun@v2
 
