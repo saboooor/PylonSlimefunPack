@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/saboooor/PylonSlimefunPack/compare/v1.0.2...v1.1.0) (2026-03-07)
+
+
+### Features
+
+* Add workflow to check for PylonPack updates and manage submodule changes ([e0e8bbc](https://github.com/saboooor/PylonSlimefunPack/commit/e0e8bbc7cecccff423a51be7f198fc3d531b3065))
+* Enhance build and release workflow with submodule detection and updates ([47d9a06](https://github.com/saboooor/PylonSlimefunPack/commit/47d9a06604ff2b6043b19c006235af4f45a4a50c))
+
+
+### Bug Fixes
+
+* Upgrade GitHub Actions to use latest versions of checkout, setup-python, and upload-artifact ([d42eaa9](https://github.com/saboooor/PylonSlimefunPack/commit/d42eaa92a9b456dfa0708ef96856b772f27a93a1))
+
 ## [1.0.2](https://github.com/saboooor/PylonSlimefunPack/compare/v1.0.1...v1.0.2) (2026-03-07)
 
 
