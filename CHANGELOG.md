@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/saboooor/PylonSlimefunPack/compare/v1.0.1...v1.0.2) (2026-03-07)
+
+
+### Bug Fixes
+
+* Correct reference to release tag in GitHub Actions workflow ([9a806c1](https://github.com/saboooor/PylonSlimefunPack/commit/9a806c18ac33e8cb0c9d25ab710a38f3f07d85da))
+
 ## [1.0.1](https://github.com/saboooor/PylonSlimefunPack/compare/v1.0.0...v1.0.1) (2026-03-07)
 
 
