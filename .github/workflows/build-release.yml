@@ -23,7 +23,6 @@ jobs:
 
   build:
     needs: release
-    if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -54,6 +53,7 @@ jobs:
           archive: false
 
       - name: Upload release asset
+        if: ${{ needs.release.outputs.release_created }}
         run: gh release upload ${{ needs.release.outputs.tag_name }} PylonSlimefun.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
