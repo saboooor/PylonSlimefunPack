@@ -1,6 +1,9 @@
-name: build and release
+name: Build and Release
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -10,12 +13,44 @@ permissions:
   pull-requests: write
 
 jobs:
+  detect-submodule:
+    runs-on: ubuntu-latest
+    outputs:
+      submodule_changed: ${{ steps.check.outputs.submodule_changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - id: check
+        name: Check for submodule changes
+        run: |
+          git submodule update --remote --merge
+          if git diff --quiet pylon-resource-pack; then
+            echo "submodule_changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "submodule_changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push updated submodule pointer
+        if: steps.check.outputs.submodule_changed == 'true'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add pylon-resource-pack
+          git commit -m "Update submodule to latest commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   release:
+    needs: detect-submodule
+    if: ${{ needs.detect-submodule.outputs.submodule_changed == 'true' }}
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
-
     steps:
       - id: release
         uses: googleapis/release-please-action@v4
@@ -26,7 +61,6 @@ jobs:
     needs: release
     if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -40,8 +74,7 @@ jobs:
 
       - name: Build Pylon resource pack
         working-directory: pylon-resource-pack
-        run: |
-          python resource_pack_generator.py
+        run: python resource_pack_generator.py
 
       - name: Setup bun
         uses: oven-sh/setup-bun@v2
@@ -57,8 +90,6 @@ jobs:
           path: PylonSlimefun/
 
       - name: Upload release asset
-        # Use the GitHub CLI to upload the file to the newly created release
-        run: |
-          gh release upload ${{ needs.release.outputs.tag_name }} PylonSlimefun.zip
+        run: gh release upload ${{ needs.release.outputs.tag_name }} PylonSlimefun.zip
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # The built-in token has permission for this
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
