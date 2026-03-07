@@ -1,9 +1,6 @@
-name: Build and Release
+name: build and release
 
 on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -13,40 +10,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  detect-submodule:
-    runs-on: ubuntu-latest
-    outputs:
-      submodule_changed: ${{ steps.check.outputs.submodule_changed }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - id: check
-        name: Check for submodule changes
-        run: |
-          git submodule update --remote --merge
-          if git diff --quiet pylon-resource-pack; then
-            echo "submodule_changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "submodule_changed=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Push updated submodule pointer
-        if: steps.check.outputs.submodule_changed == 'true'
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add pylon-resource-pack
-          git commit -m "Update submodule to latest commit"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   release:
-    needs: detect-submodule
-    if: ${{ needs.detect-submodule.outputs.submodule_changed == 'true' }}
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
