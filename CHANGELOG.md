@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/saboooor/PylonSlimefunPack/compare/v1.1.0...v1.1.1) (2026-03-07)
+
+
+### Bug Fixes
+
+* Correct conditional execution for build job based on release creation ([7858cdc](https://github.com/saboooor/PylonSlimefunPack/commit/7858cdce38657a13c60b27157fa8549ae6bea67e))
+
 ## [1.1.0](https://github.com/saboooor/PylonSlimefunPack/compare/v1.0.2...v1.1.0) (2026-03-07)
 
 
