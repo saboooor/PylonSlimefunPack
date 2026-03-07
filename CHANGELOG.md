@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/saboooor/PylonSlimefunPack/compare/v1.0.0...v1.0.1) (2026-03-07)
+
+
+### Bug Fixes
+
+* Update GitHub Actions workflow to upload release asset using GitHub CLI ([10799a3](https://github.com/saboooor/PylonSlimefunPack/commit/10799a394be04cde5c2c3363ad045d408b8fad0f))
+
 ## 1.0.0 (2026-03-07)
 
 
