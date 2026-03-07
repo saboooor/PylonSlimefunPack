@@ -1,4 +1,4 @@
-name: Release Please
+name: build and release
 
 on:
   push:
@@ -10,7 +10,20 @@ permissions:
   pull-requests: write
 
 jobs:
-  release-please:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+
+    steps:
+      - id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          release-type: simple
+
+  build:
+    needs: release
+    if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +32,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: 'pip' # Caches dependencies for faster runs
+          python-version: "3.11"
 
       - name: Build Pylon resource pack
         working-directory: pylon-resource-pack
@@ -42,3 +54,8 @@ jobs:
         with:
           name: PylonSlimefun
           path: PylonSlimefun/
+
+      - name: Upload zip to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: PylonSlimefun.zip
