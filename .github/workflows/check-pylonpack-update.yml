@@ -37,7 +37,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add pylon-resource-pack
-          git commit -m "Update submodule to latest commit"
+          git commit -m "feat: Update PylonPack to latest"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
