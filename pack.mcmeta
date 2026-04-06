@@ -18,10 +18,10 @@
         "directory": "overlay_1_21_6_plus",
         "formats": {
           "min_inclusive": 55,
-          "max_inclusive": 999
+          "max_inclusive": 75
         },
         "min_format": 55,
-        "max_format": 999
+        "max_format": 75
       },
       {
         "directory": "pylon_untouched",
@@ -36,10 +36,10 @@
         "directory": "pylon_slimefun_merge",
         "formats": {
           "min_inclusive": 55,
-          "max_inclusive": 999
+          "max_inclusive": 75
         },
         "min_format": 55,
-        "max_format": 999
+        "max_format": 75
       }
     ]
   },
