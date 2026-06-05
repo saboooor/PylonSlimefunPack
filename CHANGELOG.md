@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/saboooor/PylonSlimefunPack/compare/v1.1.1...v1.2.0) (2026-06-05)
+
+
+### Features
+
+* Update PylonPack to latest ([b6fd46b](https://github.com/saboooor/PylonSlimefunPack/commit/b6fd46b199d62777566f6e2f2f341b5b8b9026e8))
+* Update PylonPack to latest ([30f9e45](https://github.com/saboooor/PylonSlimefunPack/commit/30f9e45a660c2a97afcb97b78042a660f6cc1bfd))
+* Update PylonPack to latest ([8d42af6](https://github.com/saboooor/PylonSlimefunPack/commit/8d42af6068b02b1c50e528295c39038e24f03a18))
+
 ## [1.1.1](https://github.com/saboooor/PylonSlimefunPack/compare/v1.1.0...v1.1.1) (2026-03-22)
 
 
