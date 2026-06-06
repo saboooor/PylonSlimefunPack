@@ -1,125 +1,230 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENDER_BOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_armor/ender_armor/ender_boots"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "ENDER_BOOTS"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:magical_armor/ender_armor/ender_boots"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "SLIME_BOOTS"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SLIME_BOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_armor/slime_armor/slime_boots"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:magical_armor/slime_armor/slime_boots"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GLOWSTONE_BOOTS"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "GLOWSTONE_BOOTS"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/magical_armor/glowstone_armor/glowstone_boots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CACTUS_BOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/armor/cactus_armor/cactus_boots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"RUBBER_BOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/armor/hazmat_suit/hazmat_boots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"FARMER_SHOES"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_armor/farmer_armor/farmer_boots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BOOTS_OF_THE_STOMPER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_armor/stomper_armor/stomper_boots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"DURALUMIN_JETBOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/jetboots/duralumin_jetboots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SOLDER_JETBOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/jetboots/solder_jetboots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BILLON_JETBOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/jetboots/billon_jetboots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"STEEL_JETBOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/jetboots/steel_jetboots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"DAMASCUS_STEEL_JETBOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/jetboots/damascus_steel_jetboots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"REINFORCED_ALLOY_JETBOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/jetboots/reinforced_alloy_jetboots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CARBONADO_JETBOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/jetboots/carbonado_jetboots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"RAINBOW_BOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_armor/rainbow_armor/rainbow_boots"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"COPPER_BOOTS"}},
-        "model": {
-          "type": "model",
-          "model": "extra_gear:armor/copper/copper_boots"
+          "model": "slimefun:magical_armor/glowstone_armor/glowstone_boots"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "CACTUS_BOOTS"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:armor/cactus_armor/cactus_boots"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "RUBBER_BOOTS"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "slimefun:armor/hazmat_suit/hazmat_boots"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "minecraft:component",
+              "predicate": "minecraft:custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "FARMER_SHOES"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "slimefun:magical_armor/farmer_armor/farmer_boots"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "minecraft:component",
+                "predicate": "minecraft:custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "BOOTS_OF_THE_STOMPER"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "slimefun:magical_armor/stomper_armor/stomper_boots"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "minecraft:component",
+                  "predicate": "minecraft:custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "DURALUMIN_JETBOOTS"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "slimefun:technical_gadgets/jetboots/duralumin_jetboots"
+                  },
+                  "on_false": {
+                    "type": "minecraft:condition",
+                    "property": "minecraft:component",
+                    "predicate": "minecraft:custom_data",
+                    "value": {
+                      "PublicBukkitValues": {
+                        "slimefun:slimefun_item": "SOLDER_JETBOOTS"
+                      }
+                    },
+                    "on_true": {
+                      "type": "model",
+                      "model": "slimefun:technical_gadgets/jetboots/solder_jetboots"
+                    },
+                    "on_false": {
+                      "type": "minecraft:condition",
+                      "property": "minecraft:component",
+                      "predicate": "minecraft:custom_data",
+                      "value": {
+                        "PublicBukkitValues": {
+                          "slimefun:slimefun_item": "BILLON_JETBOOTS"
+                        }
+                      },
+                      "on_true": {
+                        "type": "model",
+                        "model": "slimefun:technical_gadgets/jetboots/billon_jetboots"
+                      },
+                      "on_false": {
+                        "type": "minecraft:condition",
+                        "property": "minecraft:component",
+                        "predicate": "minecraft:custom_data",
+                        "value": {
+                          "PublicBukkitValues": {
+                            "slimefun:slimefun_item": "STEEL_JETBOOTS"
+                          }
+                        },
+                        "on_true": {
+                          "type": "model",
+                          "model": "slimefun:technical_gadgets/jetboots/steel_jetboots"
+                        },
+                        "on_false": {
+                          "type": "minecraft:condition",
+                          "property": "minecraft:component",
+                          "predicate": "minecraft:custom_data",
+                          "value": {
+                            "PublicBukkitValues": {
+                              "slimefun:slimefun_item": "DAMASCUS_STEEL_JETBOOTS"
+                            }
+                          },
+                          "on_true": {
+                            "type": "model",
+                            "model": "slimefun:technical_gadgets/jetboots/damascus_steel_jetboots"
+                          },
+                          "on_false": {
+                            "type": "minecraft:condition",
+                            "property": "minecraft:component",
+                            "predicate": "minecraft:custom_data",
+                            "value": {
+                              "PublicBukkitValues": {
+                                "slimefun:slimefun_item": "REINFORCED_ALLOY_JETBOOTS"
+                              }
+                            },
+                            "on_true": {
+                              "type": "model",
+                              "model": "slimefun:technical_gadgets/jetboots/reinforced_alloy_jetboots"
+                            },
+                            "on_false": {
+                              "type": "minecraft:condition",
+                              "property": "minecraft:component",
+                              "predicate": "minecraft:custom_data",
+                              "value": {
+                                "PublicBukkitValues": {
+                                  "slimefun:slimefun_item": "CARBONADO_JETBOOTS"
+                                }
+                              },
+                              "on_true": {
+                                "type": "model",
+                                "model": "slimefun:technical_gadgets/jetboots/carbonado_jetboots"
+                              },
+                              "on_false": {
+                                "type": "minecraft:condition",
+                                "property": "minecraft:component",
+                                "predicate": "minecraft:custom_data",
+                                "value": {
+                                  "PublicBukkitValues": {
+                                    "slimefun:slimefun_item": "RAINBOW_BOOTS"
+                                  }
+                                },
+                                "on_true": {
+                                  "type": "model",
+                                  "model": "slimefun:magical_armor/rainbow_armor/rainbow_boots"
+                                },
+                                "on_false": {
+                                  "type": "minecraft:condition",
+                                  "property": "minecraft:component",
+                                  "predicate": "minecraft:custom_data",
+                                  "value": {
+                                    "PublicBukkitValues": {
+                                      "slimefun:slimefun_item": "COPPER_BOOTS"
+                                    }
+                                  },
+                                  "on_true": {
+                                    "type": "model",
+                                    "model": "extra_gear:armor/copper/copper_boots"
+                                  },
+                                  "on_false": {
+                                    "type": "model",
+                                    "model": "item/chainmail_boots"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/chainmail_boots"
     }
   }
 }

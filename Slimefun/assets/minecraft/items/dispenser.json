@@ -1,62 +1,104 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GRIND_STONE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/grind_stone"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GRIND_STONE"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/grind_stone"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "ORE_CRUSHER"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ORE_CRUSHER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/ore_crusher"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:basic_machines/ore_crusher"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BLOCK_PLACER"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "BLOCK_PLACER"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/basic_machines/block_placer"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ANCIENT_PEDESTAL"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_items/ancient_pedestal"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ANDROID_INTERFACE_ITEMS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/androids/android_interface_items"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ANDROID_INTERFACE_FUEL"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/androids/android_interface_fuel"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"EXP_DISPENSER"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:multiblocks/exp_dispenser"
+          "model": "slimefun:basic_machines/block_placer"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "ANCIENT_PEDESTAL"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:magical_items/ancient_pedestal"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "ANDROID_INTERFACE_ITEMS"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "slimefun:androids/android_interface_items"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "minecraft:component",
+              "predicate": "minecraft:custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "ANDROID_INTERFACE_FUEL"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "slimefun:androids/android_interface_fuel"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "minecraft:component",
+                "predicate": "minecraft:custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "EXP_DISPENSER"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "fluffymachines:multiblocks/exp_dispenser"
+                },
+                "on_false": {
+                  "type": "model",
+                  "model": "block/dispenser"
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/dispenser"
     }
   }
 }

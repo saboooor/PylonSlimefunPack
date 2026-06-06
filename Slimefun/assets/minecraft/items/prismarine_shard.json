@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_GUARDIAN_FIN"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_guardian_fin"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_GUARDIAN_FIN"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_guardian_fin"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/prismarine_shard"
     }

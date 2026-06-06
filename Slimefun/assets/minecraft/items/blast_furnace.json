@@ -1,48 +1,76 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"MAKESHIFT_SMELTERY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/makeshift_smeltery"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "MAKESHIFT_SMELTERY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/makeshift_smeltery"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "CRANK_GENERATOR"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CRANK_GENERATOR"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:generators/crank_generator"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "fluffymachines:generators/crank_generator"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"FOUNDRY"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "FOUNDRY"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "fluffymachines:multiblocks/foundry"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GENERATOR_CORE"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:generators/generator_core"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREHEATED_FURNACE"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:multiblocks/superheated_furnace"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "GENERATOR_CORE"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "fluffymachines:generators/generator_core"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "SUPREHEATED_FURNACE"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "fluffymachines:multiblocks/superheated_furnace"
+            },
+            "on_false": {
+              "type": "model",
+              "model": "block/blast_furnace"
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/blast_furnace"
     }
   }
 }

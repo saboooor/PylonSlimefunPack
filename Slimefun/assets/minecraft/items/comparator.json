@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"_UI_MENU"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gui/_ui_menu"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "_UI_MENU"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:gui/_ui_menu"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/comparator"
     }

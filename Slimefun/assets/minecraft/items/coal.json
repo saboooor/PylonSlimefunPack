@@ -1,27 +1,36 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"infinityexpansion2:oscillator_target":"COAL","slimefun:slimefun_item":"IE_OSCILLATOR_COAL"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:tools/oscillator_coal"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "infinityexpansion2:oscillator_target": "COAL",
+        "slimefun:slimefun_item": "IE_OSCILLATOR_COAL"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "infinityexpansion2:tools/oscillator_coal"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "infinityexpansion2:oscillator_target": "COAL",
+          "slimefun:slimefun_item": "IE_OSCILLATOR"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"infinityexpansion2:oscillator_target":"COAL","slimefun:slimefun_item":"IE_OSCILLATOR"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:tools/oscillator_coal"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "infinityexpansion2:tools/oscillator_coal"
+      },
+      "on_false": {
+        "type": "model",
+        "model": "item/coal"
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/coal"
     }
   }
 }

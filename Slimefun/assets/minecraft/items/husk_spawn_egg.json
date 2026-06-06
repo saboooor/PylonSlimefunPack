@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"DUMMY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:general/dummy"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "DUMMY"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefunwarfare:general/dummy"
+    },
+    "on_false": {
       "type": "model",
       "model": "minecraft:item/husk_spawn_egg"
     }

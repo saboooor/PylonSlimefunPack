@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_GINGER"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_ginger"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CLT_GINGER"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "cultivation:products/clt_ginger"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "CLT_HORSERADISH"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_HORSERADISH"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_horseradish"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "cultivation:products/clt_horseradish"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_LICORICE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CLT_LICORICE"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "cultivation:products/clt_licorice"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_WASABI"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_wasabi"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "CLT_WASABI"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "cultivation:products/clt_wasabi"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "item/hanging_roots"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/hanging_roots"
     }
   }
 }

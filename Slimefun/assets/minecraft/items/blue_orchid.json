@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_CHICORY"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_chicory"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CLT_CHICORY"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "cultivation:products/clt_chicory"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/blue_orchid"
     }

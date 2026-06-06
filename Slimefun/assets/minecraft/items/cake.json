@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BIRTHDAY_CAKE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/birthday/birthday_cake"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "BIRTHDAY_CAKE"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:birthday/birthday_cake"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/cake"
     }

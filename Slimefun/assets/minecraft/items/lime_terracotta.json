@@ -1,34 +1,48 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BIO_REACTOR"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/bio_reactor"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "BIO_REACTOR"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:energy/bio_reactor"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "CROP_GROWTH_ACCELERATOR"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CROP_GROWTH_ACCELERATOR"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/crop_growth_accelerator"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:energy/crop_growth_accelerator"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CROP_GROWTH_ACCELERATOR_2"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CROP_GROWTH_ACCELERATOR_2"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/energy/crop_growth_accelerator_2"
+          "model": "slimefun:energy/crop_growth_accelerator_2"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "block/lime_terracotta"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/lime_terracotta"
     }
   }
 }

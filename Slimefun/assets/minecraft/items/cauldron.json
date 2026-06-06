@@ -1,62 +1,104 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ORE_WASHER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/ore_washer"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "ORE_WASHER"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/ore_washer"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "COMPOSTER"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"COMPOSTER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/composter"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:basic_machines/composter"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CRUCIBLE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CRUCIBLE"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/basic_machines/crucible"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"KITCHEN"}},
-        "model": {
-          "type": "model",
-          "model": "exotic_garden:misc/kitchen"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_STEEL_POT"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:tools/gn_steel_pot"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_DISTILLATION_CHAMBER"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:tools/gn_distillation_chamber"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_MILL"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:basic_machines/gn_mill"
+          "model": "slimefun:basic_machines/crucible"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "KITCHEN"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "exotic_garden:misc/kitchen"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "GN_STEEL_POT"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "gastronomicon:tools/gn_steel_pot"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "GN_DISTILLATION_CHAMBER"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "gastronomicon:tools/gn_distillation_chamber"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "GN_MILL"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "gastronomicon:basic_machines/gn_mill"
+                },
+                "on_false": {
+                  "type": "model",
+                  "model": "item/cauldron"
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/cauldron"
     }
   }
 }

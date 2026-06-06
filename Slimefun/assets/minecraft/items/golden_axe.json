@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"FLUFFY_WRENCH"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:wrenches/fluffy_wrench"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "FLUFFY_WRENCH"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "fluffymachines:wrenches/fluffy_wrench"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/golden_axe"
     }

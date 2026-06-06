@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_DUST_WASHER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_dust_washer"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "ELECTRIC_DUST_WASHER"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:energy/electric_dust_washer"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "ELECTRIC_DUST_WASHER_2"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_DUST_WASHER_2"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_dust_washer_2"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:energy/electric_dust_washer_2"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_DUST_WASHER_3"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "ELECTRIC_DUST_WASHER_3"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/energy/electric_dust_washer_3"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"FIBER_OPTIC_GLASS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:general/fiber_optic_glass"
+          "model": "slimefun:energy/electric_dust_washer_3"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "FIBER_OPTIC_GLASS"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefunwarfare:general/fiber_optic_glass"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "block/blue_stained_glass"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/blue_stained_glass"
     }
   }
 }

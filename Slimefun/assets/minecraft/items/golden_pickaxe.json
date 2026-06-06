@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INDUSTRIAL_MINER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/industrial_miner"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "INDUSTRIAL_MINER"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/industrial_miner"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/golden_pickaxe"
     }

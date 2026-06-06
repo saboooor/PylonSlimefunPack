@@ -1,22 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-       "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"ARMOR_FORGE"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/armor_forge"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "ARMOR_FORGE"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/armor_forge"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/anvil"
     }

@@ -1,34 +1,48 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_BARLEY"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_barley"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_BARLEY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_barley"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_RYE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RYE"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_rye"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:ingredient/gn_rye"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_SORGHUM"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "GN_SORGHUM"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "gastronomicon:ingredient/gn_sorghum"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "item/wheat"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/wheat"
     }
   }
 }

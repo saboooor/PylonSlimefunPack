@@ -1,27 +1,34 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"MONSTER_JERKY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/food/monster_jerky"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "MONSTER_JERKY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:food/monster_jerky"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "LATIAO"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"LATIAO"}},
-        "model": {
-          "type": "model",
-          "model": "bump:foods/latiao"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "bump:foods/latiao"
+      },
+      "on_false": {
+        "type": "model",
+        "model": "item/rotten_flesh"
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/rotten_flesh"
     }
   }
 }

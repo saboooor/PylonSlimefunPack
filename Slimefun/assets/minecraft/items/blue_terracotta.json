@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"FLUID_PUMP"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/fluid_pump"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "FLUID_PUMP"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:energy/fluid_pump"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/blue_terracotta"
     }

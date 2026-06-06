@@ -1,62 +1,104 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RAW_MACKEREL"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_raw_mackerel"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_RAW_MACKEREL"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_raw_mackerel"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_RAW_TROUT"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RAW_TROUT"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_raw_trout"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:ingredient/gn_raw_trout"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RAW_BASS"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "GN_RAW_BASS"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "gastronomicon:ingredient/gn_raw_bass"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RAW_CARP"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_raw_carp"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RAW_PIKE"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_raw_pike"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RAW_TUNA"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_raw_tuna"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_SHRIMP"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_shrimp"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "GN_RAW_CARP"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "gastronomicon:ingredient/gn_raw_carp"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "GN_RAW_PIKE"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "gastronomicon:ingredient/gn_raw_pike"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "GN_RAW_TUNA"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "gastronomicon:ingredient/gn_raw_tuna"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "GN_SHRIMP"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "gastronomicon:ingredient/gn_shrimp"
+                },
+                "on_false": {
+                  "type": "model",
+                  "model": "item/cod"
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/cod"
     }
   }
 }

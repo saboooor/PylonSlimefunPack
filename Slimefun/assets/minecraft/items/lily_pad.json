@@ -1,21 +1,21 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_BAY_LEAF"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_bay_leaf"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CLT_BAY_LEAF"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "cultivation:products/clt_bay_leaf"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/lily_pad",
-        "tints": [
+      "tints": [
         {
           "type": "minecraft:constant",
           "value": -9321636

@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CONVEYANCE_MACHINE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_conveyance_machine"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_CONVEYANCE_MACHINE"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:components/supreme_conveyance_machine"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/horn_coral_block"
     }

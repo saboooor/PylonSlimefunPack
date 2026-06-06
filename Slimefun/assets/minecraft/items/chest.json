@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"OUTPUT_CHEST"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/output_chest"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "OUTPUT_CHEST"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/output_chest"
+    },
+    "on_false": {
       "type": "minecraft:select",
       "cases": [
         {
@@ -41,6 +41,6 @@
       },
       "pattern": "MM-dd",
       "property": "minecraft:local_time"
-     }   
+    }
   }
 }

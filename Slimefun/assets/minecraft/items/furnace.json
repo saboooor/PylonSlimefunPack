@@ -1,174 +1,328 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SMELTERY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/smeltery"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SMELTERY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/smeltery"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "ENHANCED_FURNACE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:basic_machines/enhanced_furnace"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_2"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "ENHANCED_FURNACE_2"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_2"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_3"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_3"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_4"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_4"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_5"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_5"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_6"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_6"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_7"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_7"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_8"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_8"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_9"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_9"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_10"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_10"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENHANCED_FURNACE_11"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/enhanced_furnace_11"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"REINFORCED_FURNACE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/reinforced_furnace"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CARBONADO_EDGED_FURNACE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/carbonado_edged_furnace"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_FURNACE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_furnace"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_FURNACE_2"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_furnace_2"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_FURNACE_3"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_furnace_3"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_ORE_GRINDER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_ore_grinder"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_ORE_GRINDER_2"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_ore_grinder_2"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_INGOT_PULVERIZER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_ingot_pulverizer"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_SMELTERY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_smeltery"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_SMELTERY_2"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_smeltery_2"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_ORE_GRINDER_3"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_ore_grinder_3"
+          "model": "slimefun:basic_machines/enhanced_furnace_2"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "ENHANCED_FURNACE_3"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:basic_machines/enhanced_furnace_3"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "ENHANCED_FURNACE_4"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "slimefun:basic_machines/enhanced_furnace_4"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "minecraft:component",
+              "predicate": "minecraft:custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "ENHANCED_FURNACE_5"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "slimefun:basic_machines/enhanced_furnace_5"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "minecraft:component",
+                "predicate": "minecraft:custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "ENHANCED_FURNACE_6"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "slimefun:basic_machines/enhanced_furnace_6"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "minecraft:component",
+                  "predicate": "minecraft:custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "ENHANCED_FURNACE_7"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "slimefun:basic_machines/enhanced_furnace_7"
+                  },
+                  "on_false": {
+                    "type": "minecraft:condition",
+                    "property": "minecraft:component",
+                    "predicate": "minecraft:custom_data",
+                    "value": {
+                      "PublicBukkitValues": {
+                        "slimefun:slimefun_item": "ENHANCED_FURNACE_8"
+                      }
+                    },
+                    "on_true": {
+                      "type": "model",
+                      "model": "slimefun:basic_machines/enhanced_furnace_8"
+                    },
+                    "on_false": {
+                      "type": "minecraft:condition",
+                      "property": "minecraft:component",
+                      "predicate": "minecraft:custom_data",
+                      "value": {
+                        "PublicBukkitValues": {
+                          "slimefun:slimefun_item": "ENHANCED_FURNACE_9"
+                        }
+                      },
+                      "on_true": {
+                        "type": "model",
+                        "model": "slimefun:basic_machines/enhanced_furnace_9"
+                      },
+                      "on_false": {
+                        "type": "minecraft:condition",
+                        "property": "minecraft:component",
+                        "predicate": "minecraft:custom_data",
+                        "value": {
+                          "PublicBukkitValues": {
+                            "slimefun:slimefun_item": "ENHANCED_FURNACE_10"
+                          }
+                        },
+                        "on_true": {
+                          "type": "model",
+                          "model": "slimefun:basic_machines/enhanced_furnace_10"
+                        },
+                        "on_false": {
+                          "type": "minecraft:condition",
+                          "property": "minecraft:component",
+                          "predicate": "minecraft:custom_data",
+                          "value": {
+                            "PublicBukkitValues": {
+                              "slimefun:slimefun_item": "ENHANCED_FURNACE_11"
+                            }
+                          },
+                          "on_true": {
+                            "type": "model",
+                            "model": "slimefun:basic_machines/enhanced_furnace_11"
+                          },
+                          "on_false": {
+                            "type": "minecraft:condition",
+                            "property": "minecraft:component",
+                            "predicate": "minecraft:custom_data",
+                            "value": {
+                              "PublicBukkitValues": {
+                                "slimefun:slimefun_item": "REINFORCED_FURNACE"
+                              }
+                            },
+                            "on_true": {
+                              "type": "model",
+                              "model": "slimefun:basic_machines/reinforced_furnace"
+                            },
+                            "on_false": {
+                              "type": "minecraft:condition",
+                              "property": "minecraft:component",
+                              "predicate": "minecraft:custom_data",
+                              "value": {
+                                "PublicBukkitValues": {
+                                  "slimefun:slimefun_item": "CARBONADO_EDGED_FURNACE"
+                                }
+                              },
+                              "on_true": {
+                                "type": "model",
+                                "model": "slimefun:basic_machines/carbonado_edged_furnace"
+                              },
+                              "on_false": {
+                                "type": "minecraft:condition",
+                                "property": "minecraft:component",
+                                "predicate": "minecraft:custom_data",
+                                "value": {
+                                  "PublicBukkitValues": {
+                                    "slimefun:slimefun_item": "ELECTRIC_FURNACE"
+                                  }
+                                },
+                                "on_true": {
+                                  "type": "model",
+                                  "model": "slimefun:energy/electric_furnace"
+                                },
+                                "on_false": {
+                                  "type": "minecraft:condition",
+                                  "property": "minecraft:component",
+                                  "predicate": "minecraft:custom_data",
+                                  "value": {
+                                    "PublicBukkitValues": {
+                                      "slimefun:slimefun_item": "ELECTRIC_FURNACE_2"
+                                    }
+                                  },
+                                  "on_true": {
+                                    "type": "model",
+                                    "model": "slimefun:energy/electric_furnace_2"
+                                  },
+                                  "on_false": {
+                                    "type": "minecraft:condition",
+                                    "property": "minecraft:component",
+                                    "predicate": "minecraft:custom_data",
+                                    "value": {
+                                      "PublicBukkitValues": {
+                                        "slimefun:slimefun_item": "ELECTRIC_FURNACE_3"
+                                      }
+                                    },
+                                    "on_true": {
+                                      "type": "model",
+                                      "model": "slimefun:energy/electric_furnace_3"
+                                    },
+                                    "on_false": {
+                                      "type": "minecraft:condition",
+                                      "property": "minecraft:component",
+                                      "predicate": "minecraft:custom_data",
+                                      "value": {
+                                        "PublicBukkitValues": {
+                                          "slimefun:slimefun_item": "ELECTRIC_ORE_GRINDER"
+                                        }
+                                      },
+                                      "on_true": {
+                                        "type": "model",
+                                        "model": "slimefun:energy/electric_ore_grinder"
+                                      },
+                                      "on_false": {
+                                        "type": "minecraft:condition",
+                                        "property": "minecraft:component",
+                                        "predicate": "minecraft:custom_data",
+                                        "value": {
+                                          "PublicBukkitValues": {
+                                            "slimefun:slimefun_item": "ELECTRIC_ORE_GRINDER_2"
+                                          }
+                                        },
+                                        "on_true": {
+                                          "type": "model",
+                                          "model": "slimefun:energy/electric_ore_grinder_2"
+                                        },
+                                        "on_false": {
+                                          "type": "minecraft:condition",
+                                          "property": "minecraft:component",
+                                          "predicate": "minecraft:custom_data",
+                                          "value": {
+                                            "PublicBukkitValues": {
+                                              "slimefun:slimefun_item": "ELECTRIC_INGOT_PULVERIZER"
+                                            }
+                                          },
+                                          "on_true": {
+                                            "type": "model",
+                                            "model": "slimefun:energy/electric_ingot_pulverizer"
+                                          },
+                                          "on_false": {
+                                            "type": "minecraft:condition",
+                                            "property": "minecraft:component",
+                                            "predicate": "minecraft:custom_data",
+                                            "value": {
+                                              "PublicBukkitValues": {
+                                                "slimefun:slimefun_item": "ELECTRIC_SMELTERY"
+                                              }
+                                            },
+                                            "on_true": {
+                                              "type": "model",
+                                              "model": "slimefun:energy/electric_smeltery"
+                                            },
+                                            "on_false": {
+                                              "type": "minecraft:condition",
+                                              "property": "minecraft:component",
+                                              "predicate": "minecraft:custom_data",
+                                              "value": {
+                                                "PublicBukkitValues": {
+                                                  "slimefun:slimefun_item": "ELECTRIC_SMELTERY_2"
+                                                }
+                                              },
+                                              "on_true": {
+                                                "type": "model",
+                                                "model": "slimefun:energy/electric_smeltery_2"
+                                              },
+                                              "on_false": {
+                                                "type": "minecraft:condition",
+                                                "property": "minecraft:component",
+                                                "predicate": "minecraft:custom_data",
+                                                "value": {
+                                                  "PublicBukkitValues": {
+                                                    "slimefun:slimefun_item": "ELECTRIC_ORE_GRINDER_3"
+                                                  }
+                                                },
+                                                "on_true": {
+                                                  "type": "model",
+                                                  "model": "slimefun:energy/electric_ore_grinder_3"
+                                                },
+                                                "on_false": {
+                                                  "type": "model",
+                                                  "model": "block/furnace"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/furnace"
     }
   }
 }

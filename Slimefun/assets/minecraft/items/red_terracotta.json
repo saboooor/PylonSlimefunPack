@@ -1,55 +1,90 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_INGOT_FACTORY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_ingot_factory"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "ELECTRIC_INGOT_FACTORY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:energy/electric_ingot_factory"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "ELECTRIC_INGOT_FACTORY_2"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_INGOT_FACTORY_2"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electric_ingot_factory2"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:energy/electric_ingot_factory2"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIC_INGOT_FACTORY_3"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "ELECTRIC_INGOT_FACTORY_3"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/energy/electric_ingot_factory3"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIFIED_CRUCIBLE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electrified_crucible"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIFIED_CRUCIBLE_2"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electrified_crucible2"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELECTRIFIED_CRUCIBLE_3"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/electrified_crucible3"
+          "model": "slimefun:energy/electric_ingot_factory3"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "ELECTRIFIED_CRUCIBLE"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:energy/electrified_crucible"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "ELECTRIFIED_CRUCIBLE_2"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "slimefun:energy/electrified_crucible2"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "minecraft:component",
+              "predicate": "minecraft:custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "ELECTRIFIED_CRUCIBLE_3"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "slimefun:energy/electrified_crucible3"
+              },
+              "on_false": {
+                "type": "model",
+                "model": "block/red_terracotta"
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/red_terracotta"
     }
   }
 }

@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"_UI_BACKGROUND"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gui/background"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "_UI_BACKGROUND"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:gui/background"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/gray_stained_glass_pane"
     }

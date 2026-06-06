@@ -1,27 +1,34 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CHICKEN_JERKY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/food/chicken_jerky"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CHICKEN_JERKY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:food/chicken_jerky"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_COOKED_TURKEY"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_COOKED_TURKEY"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_cooked_turkey"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:ingredient/gn_cooked_turkey"
+      },
+      "on_false": {
+        "type": "model",
+        "model": "item/cooked_chicken"
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/cooked_chicken"
     }
   }
 }

@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CORN_ON_THE_COB"}},
-        "model": {
-          "type": "model",
-          "model": "exotic_garden:foods/corn_on_the_cob"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CORN_ON_THE_COB"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "exotic_garden:foods/corn_on_the_cob"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/golden_carrot"
     }

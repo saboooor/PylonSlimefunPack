@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CENTER_CARD_ADVANCED"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/center_card_advanced"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_CENTER_CARD_ADVANCED"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:machine_cards/center_card_advanced"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/music_disc_pigstep"
     }

@@ -1,125 +1,230 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_STONE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_stone"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_CARD_STONE"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:machine_cards/card_stone"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "SUPREME_CARD_GRANITE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_GRANITE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_granite"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "supreme:machine_cards/card_granite"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_DIORITE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "SUPREME_CARD_DIORITE"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "supreme:machine_cards/card_diorite"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_ANDESITE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_andesite"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_GRAVEL"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_gravel"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_SAND"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_sand"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_ENDSTONE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_end_stone"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_CLAY"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_clay"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_SNOW"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_snow"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_APPLE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_apple"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_NETHER_STAR"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_nether_star"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_WITHER_ROSE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_wither_rose"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_SLIME_BALL"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_slime_ball"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_INK_SAC"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_ink_sac"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_GLOW_INK_SAC"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_glow_ink_sac"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_HONEY_BOTTLE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_honey_bottle"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "SUPREME_CARD_ANDESITE"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "supreme:machine_cards/card_andesite"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "SUPREME_CARD_GRAVEL"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "supreme:machine_cards/card_gravel"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "SUPREME_CARD_SAND"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "supreme:machine_cards/card_sand"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "SUPREME_CARD_ENDSTONE"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "supreme:machine_cards/card_end_stone"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "component",
+                  "predicate": "custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "SUPREME_CARD_CLAY"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "supreme:machine_cards/card_clay"
+                  },
+                  "on_false": {
+                    "type": "minecraft:condition",
+                    "property": "component",
+                    "predicate": "custom_data",
+                    "value": {
+                      "PublicBukkitValues": {
+                        "slimefun:slimefun_item": "SUPREME_CARD_SNOW"
+                      }
+                    },
+                    "on_true": {
+                      "type": "model",
+                      "model": "supreme:machine_cards/card_snow"
+                    },
+                    "on_false": {
+                      "type": "minecraft:condition",
+                      "property": "component",
+                      "predicate": "custom_data",
+                      "value": {
+                        "PublicBukkitValues": {
+                          "slimefun:slimefun_item": "SUPREME_CARD_APPLE"
+                        }
+                      },
+                      "on_true": {
+                        "type": "model",
+                        "model": "supreme:machine_cards/card_apple"
+                      },
+                      "on_false": {
+                        "type": "minecraft:condition",
+                        "property": "component",
+                        "predicate": "custom_data",
+                        "value": {
+                          "PublicBukkitValues": {
+                            "slimefun:slimefun_item": "SUPREME_CARD_NETHER_STAR"
+                          }
+                        },
+                        "on_true": {
+                          "type": "model",
+                          "model": "supreme:machine_cards/card_nether_star"
+                        },
+                        "on_false": {
+                          "type": "minecraft:condition",
+                          "property": "component",
+                          "predicate": "custom_data",
+                          "value": {
+                            "PublicBukkitValues": {
+                              "slimefun:slimefun_item": "SUPREME_CARD_WITHER_ROSE"
+                            }
+                          },
+                          "on_true": {
+                            "type": "model",
+                            "model": "supreme:machine_cards/card_wither_rose"
+                          },
+                          "on_false": {
+                            "type": "minecraft:condition",
+                            "property": "component",
+                            "predicate": "custom_data",
+                            "value": {
+                              "PublicBukkitValues": {
+                                "slimefun:slimefun_item": "SUPREME_CARD_SLIME_BALL"
+                              }
+                            },
+                            "on_true": {
+                              "type": "model",
+                              "model": "supreme:machine_cards/card_slime_ball"
+                            },
+                            "on_false": {
+                              "type": "minecraft:condition",
+                              "property": "component",
+                              "predicate": "custom_data",
+                              "value": {
+                                "PublicBukkitValues": {
+                                  "slimefun:slimefun_item": "SUPREME_CARD_INK_SAC"
+                                }
+                              },
+                              "on_true": {
+                                "type": "model",
+                                "model": "supreme:machine_cards/card_ink_sac"
+                              },
+                              "on_false": {
+                                "type": "minecraft:condition",
+                                "property": "component",
+                                "predicate": "custom_data",
+                                "value": {
+                                  "PublicBukkitValues": {
+                                    "slimefun:slimefun_item": "SUPREME_CARD_GLOW_INK_SAC"
+                                  }
+                                },
+                                "on_true": {
+                                  "type": "model",
+                                  "model": "supreme:machine_cards/card_glow_ink_sac"
+                                },
+                                "on_false": {
+                                  "type": "minecraft:condition",
+                                  "property": "component",
+                                  "predicate": "custom_data",
+                                  "value": {
+                                    "PublicBukkitValues": {
+                                      "slimefun:slimefun_item": "SUPREME_CARD_HONEY_BOTTLE"
+                                    }
+                                  },
+                                  "on_true": {
+                                    "type": "model",
+                                    "model": "supreme:machine_cards/card_honey_bottle"
+                                  },
+                                  "on_false": {
+                                    "type": "model",
+                                    "model": "item/music_disc_strad"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/music_disc_strad"
     }
   }
 }

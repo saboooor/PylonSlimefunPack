@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ANCIENT_BOOK"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:misc/ancient_book"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "ANCIENT_BOOK"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "fluffymachines:misc/ancient_book"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/book"
     }

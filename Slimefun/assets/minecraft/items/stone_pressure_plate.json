@@ -1,34 +1,48 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GPS_ACTIVATION_DEVICE_SHARED"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gps/gps_activation_device_shared"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GPS_ACTIVATION_DEVICE_SHARED"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:gps/gps_activation_device_shared"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GPS_ACTIVATION_DEVICE_PERSONAL"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GPS_ACTIVATION_DEVICE_PERSONAL"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gps/gps_activation_device_personal"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:gps/gps_activation_device_personal"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELEVATOR_PLATE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "ELEVATOR_PLATE"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/gps/elevator_plate"
+          "model": "slimefun:gps/elevator_plate"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "block/stone_pressure_plate"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/stone_pressure_plate"
     }
   }
 }

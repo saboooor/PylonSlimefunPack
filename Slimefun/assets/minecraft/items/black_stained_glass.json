@@ -1,46 +1,48 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"CARBON_PRESS"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/carbon_press"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CARBON_PRESS"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:energy/carbon_press"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "CARBON_PRESS_2"
         }
       },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"CARBON_PRESS_2"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/carbon_press_2"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:energy/carbon_press_2"
       },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"CARBON_PRESS_3"
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CARBON_PRESS_3"
           }
         },
-        "model": {
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/energy/carbon_press_3"
+          "model": "slimefun:energy/carbon_press_3"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "block/black_stained_glass"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/black_stained_glass"
     }
   }
 }

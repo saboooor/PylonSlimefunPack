@@ -7,10 +7,10 @@
     ],
     "supported_formats":{
       "min_inclusive": 15,
-      "max_inclusive": 75
+      "max_inclusive": 999
     },
   "min_format": 15,
-  "max_format": 75
+  "max_format": 999
   },
   "overlays":{
     "entries":[
@@ -18,10 +18,10 @@
         "directory": "overlay_1_21_6_plus",
         "formats":{
           "min_inclusive": 55,
-          "max_inclusive": 75
+          "max_inclusive": 999
         },
         "min_format": 55,
-        "max_format": 75
+        "max_format": 999
       }
     ]
   },

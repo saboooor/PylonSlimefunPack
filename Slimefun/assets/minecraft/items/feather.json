@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ELYTRA_SCALE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_gadgets/elytra_scale"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "ELYTRA_SCALE"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:magical_gadgets/elytra_scale"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/feather"
     }

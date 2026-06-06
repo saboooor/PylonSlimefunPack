@@ -1,34 +1,41 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_MINT"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_mint"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_MINT"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_mint"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_FIDDLEHEADS"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_FIDDLEHEADS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_fiddleheads"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:ingredient/gn_fiddleheads"
+      },
+      "on_false": {
+        "type": "minecraft:model",
+        "model": "minecraft:item/fern",
+        "tints": [
+          {
+            "type": "minecraft:grass",
+            "downfall": 1,
+            "temperature": 0.5
+          }
+        ]
       }
-    ],
-    "fallback": {
-      "type": "minecraft:model",
-      "model": "minecraft:item/fern",
-      "tints": [
-        {
-          "type": "minecraft:grass",
-          "downfall": 1.0,
-          "temperature": 0.5
-        }
-      ]
     }
   }
 }

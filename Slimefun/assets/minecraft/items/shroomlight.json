@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_MULTIBLOCK_CORE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machines/core_fabricator"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_MULTIBLOCK_CORE"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:machines/core_fabricator"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/shroomlight"
     }

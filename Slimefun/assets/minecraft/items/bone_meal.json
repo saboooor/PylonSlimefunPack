@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INFERNAL_BONEMEAL"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_gadgets/infernal_bonemeal"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "INFERNAL_BONEMEAL"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:magical_gadgets/infernal_bonemeal"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/bone_meal"
     }

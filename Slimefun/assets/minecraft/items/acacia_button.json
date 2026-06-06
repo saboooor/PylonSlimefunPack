@@ -1,57 +1,62 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "fallback": {
-      "type": "model",
-      "model": "block/acacia_button_inventory"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "NUGGET_CAST_COPPER"
+      }
     },
-    "cases": [
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"NUGGET_CAST_COPPER"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/nuggets/nugget_cast_copper"
+    "on_true": {
+      "type": "model",
+      "model": "slimetinker:materials/nuggets/nugget_cast_copper"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "NUGGET_CAST_BRONZE"
         }
       },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"NUGGET_CAST_BRONZE"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/nuggets/nugget_cast_bronze"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimetinker:materials/nuggets/nugget_cast_bronze"
       },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"NUGGET_CAST_REDSTONE_ALLOY"
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "NUGGET_CAST_REDSTONE_ALLOY"
           }
         },
-        "model": {
+        "on_true": {
           "type": "model",
           "model": "slimetinker:materials/nuggets/nugget_cast_redstone_alloy"
-        }
-      },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"NUGGET_CAST_BOOMERITE"
-          }
         },
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/nuggets/nugget_cast_boomerite"
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "NUGGET_CAST_BOOMERITE"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimetinker:materials/nuggets/nugget_cast_boomerite"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "block/acacia_button_inventory"
+          }
         }
       }
-    ]
+    }
   }
 }

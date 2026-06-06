@@ -1,62 +1,104 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"FISH_JERKY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/food/fish_jerky"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "FISH_JERKY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:food/fish_jerky"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_COOKED_MACKEREL"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_COOKED_MACKEREL"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_cooked_mackerel"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:ingredient/gn_cooked_mackerel"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_COOKED_TROUT"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "GN_COOKED_TROUT"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "gastronomicon:ingredient/gn_cooked_trout"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_COOKED_BASS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_cooked_bass"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_COOKED_CARP"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_cooked_carp"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_COOKED_PIKE"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_cooked_pike"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_COOKED_TUNA"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_cooked_tuna"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "GN_COOKED_BASS"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "gastronomicon:ingredient/gn_cooked_bass"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "GN_COOKED_CARP"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "gastronomicon:ingredient/gn_cooked_carp"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "GN_COOKED_PIKE"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "gastronomicon:ingredient/gn_cooked_pike"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "GN_COOKED_TUNA"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "gastronomicon:ingredient/gn_cooked_tuna"
+                },
+                "on_false": {
+                  "type": "model",
+                  "model": "item/cooked_cod"
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/cooked_cod"
     }
   }
 }

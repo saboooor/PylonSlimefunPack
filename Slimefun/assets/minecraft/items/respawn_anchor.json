@@ -1,34 +1,48 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INFINITY_FORGE"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:machines/infinity_workbench"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "INFINITY_FORGE"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "infinityexpansion:machines/infinity_workbench"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "IE_INFINITY_WORKBENCH"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_INFINITY_WORKBENCH"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:machines/infinity_workbench"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "infinityexpansion2:machines/infinity_workbench"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BOTTOMLESS_FLUFFY_BARREL"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "BOTTOMLESS_FLUFFY_BARREL"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "fluffymachines:barrels/bottomless_fluffy_barrel"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "minecraft:block/respawn_anchor_0"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "minecraft:block/respawn_anchor_0"
     }
   }
 }

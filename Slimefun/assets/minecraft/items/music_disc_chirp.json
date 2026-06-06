@@ -1,83 +1,146 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_ALUMINUM_BRONZE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_aluminum_bronze"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_CARD_ALUMINUM_BRONZE"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:machine_cards/card_aluminum_bronze"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "SUPREME_CARD_ALUMINUM_BRASS"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_ALUMINUM_BRASS"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_aluminum_brass"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "supreme:machine_cards/card_aluminum_brass"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_CORINTHIAN_BRONZE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "SUPREME_CARD_CORINTHIAN_BRONZE"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "supreme:machine_cards/card_corinthian_bronze"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_GOLD24K"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_gold24k"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_CARBON_PRESS"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_compressed_carbon"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_BATTERY"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_battery"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_MAGNET"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_magnet"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_PLASTIC_SHEET"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_plastic_sheet"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_HARDENED_METAL"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_hardened_metal"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_REDSTONE_ALLOY"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_redstone_alloy"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "SUPREME_CARD_GOLD24K"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "supreme:machine_cards/card_gold24k"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "SUPREME_CARD_CARBON_PRESS"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "supreme:machine_cards/card_compressed_carbon"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "SUPREME_CARD_BATTERY"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "supreme:machine_cards/card_battery"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "SUPREME_CARD_MAGNET"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "supreme:machine_cards/card_magnet"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "component",
+                  "predicate": "custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "SUPREME_CARD_PLASTIC_SHEET"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "supreme:machine_cards/card_plastic_sheet"
+                  },
+                  "on_false": {
+                    "type": "minecraft:condition",
+                    "property": "component",
+                    "predicate": "custom_data",
+                    "value": {
+                      "PublicBukkitValues": {
+                        "slimefun:slimefun_item": "SUPREME_CARD_HARDENED_METAL"
+                      }
+                    },
+                    "on_true": {
+                      "type": "model",
+                      "model": "supreme:machine_cards/card_hardened_metal"
+                    },
+                    "on_false": {
+                      "type": "minecraft:condition",
+                      "property": "component",
+                      "predicate": "custom_data",
+                      "value": {
+                        "PublicBukkitValues": {
+                          "slimefun:slimefun_item": "SUPREME_CARD_REDSTONE_ALLOY"
+                        }
+                      },
+                      "on_true": {
+                        "type": "model",
+                        "model": "supreme:machine_cards/card_redstone_alloy"
+                      },
+                      "on_false": {
+                        "type": "model",
+                        "model": "item/music_disc_chirp"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/music_disc_chirp"
     }
   }
 }

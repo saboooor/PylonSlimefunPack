@@ -1,76 +1,132 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"KSF_STUFF"}},
-        "model": {
-          "type": "model",
-          "model": "bump:magical_items/ksf_stuff"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "KSF_STUFF"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "bump:magical_items/ksf_stuff"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_OATS"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_OATS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_oats"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:ingredient/gn_oats"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_SOYBEANS"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "GN_SOYBEANS"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "gastronomicon:ingredient/gn_soybeans"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_SORGHUM_SEEDS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_sorghum_seeds"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_SPINACH_SEEDS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_spinach_seeds"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_BEANS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_beans"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_BAKED_BEANS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:food/gn_baked_beans"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_CHICKPEAS"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_chickpeas"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_DUST_AMETHYST"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_dust_amethyst"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "GN_SORGHUM_SEEDS"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "gastronomicon:ingredient/gn_sorghum_seeds"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "GN_SPINACH_SEEDS"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "gastronomicon:ingredient/gn_spinach_seeds"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "GN_BEANS"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "gastronomicon:ingredient/gn_beans"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "GN_BAKED_BEANS"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "gastronomicon:food/gn_baked_beans"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "component",
+                  "predicate": "custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "CLT_CHICKPEAS"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "cultivation:products/clt_chickpeas"
+                  },
+                  "on_false": {
+                    "type": "minecraft:condition",
+                    "property": "component",
+                    "predicate": "custom_data",
+                    "value": {
+                      "PublicBukkitValues": {
+                        "slimefun:slimefun_item": "SUPREME_DUST_AMETHYST"
+                      }
+                    },
+                    "on_true": {
+                      "type": "model",
+                      "model": "supreme:components/supreme_dust_amethyst"
+                    },
+                    "on_false": {
+                      "type": "model",
+                      "model": "item/beetroot_seeds"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/beetroot_seeds"
     }
   }
 }

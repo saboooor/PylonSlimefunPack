@@ -1,62 +1,104 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CENTER_CARD_ULTIMATE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/center_card_ultimate"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_CENTER_CARD_ULTIMATE"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:machine_cards/center_card_ultimate"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "SUPREME_CARD_SYNTHETIC_SAPPHIRE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_SYNTHETIC_SAPPHIRE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_synthetic_sapphire"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "supreme:machine_cards/card_synthetic_sapphire"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_SYNTHETIC_EMERALD"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "SUPREME_CARD_SYNTHETIC_EMERALD"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "supreme:machine_cards/card_synthetic_emerald"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_ELECTRO_MAGNET"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_electro_magnet"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_ELECTRIC_MOTOR"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_electric_motor"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_HEATING_COIL"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_heating_coil"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_SYNTHETIC_DIAMOND"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_synthetic_diamond"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "SUPREME_CARD_ELECTRO_MAGNET"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "supreme:machine_cards/card_electro_magnet"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "SUPREME_CARD_ELECTRIC_MOTOR"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "supreme:machine_cards/card_electric_motor"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "SUPREME_CARD_HEATING_COIL"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "supreme:machine_cards/card_heating_coil"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "SUPREME_CARD_SYNTHETIC_DIAMOND"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "supreme:machine_cards/card_synthetic_diamond"
+                },
+                "on_false": {
+                  "type": "model",
+                  "model": "item/music_disc_mall"
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/music_disc_mall"
     }
   }
 }

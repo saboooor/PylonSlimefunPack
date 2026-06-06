@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"OSMIUM_METEOR"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:resources/osmium_meteor"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "OSMIUM_METEOR"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefunwarfare:resources/osmium_meteor"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/iron_ore"
     }

@@ -1,48 +1,76 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"NETHERITE_SINGULARITY"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:singularities/netherite_singularity"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "NETHERITE_SINGULARITY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "infinityexpansion:singularities/netherite_singularity"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "NDFEB_ALLOY_BLOCK"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"NDFEB_ALLOY_BLOCK"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:general/ndfeb_alloy_block"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefunwarfare:general/ndfeb_alloy_block"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_VOID_BLOCK"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "IE_VOID_BLOCK"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "infinityexpansion2:materials/void_block"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_NETHERITE_SINGULARITY"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:singularities/netherite_singularity"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_ADAMANTIUM_PLATE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_adamantium_plate"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "IE_NETHERITE_SINGULARITY"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "infinityexpansion2:singularities/netherite_singularity"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "SUPREME_ADAMANTIUM_PLATE"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "supreme:components/supreme_adamantium_plate"
+            },
+            "on_false": {
+              "type": "model",
+              "model": "block/netherite_block"
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/netherite_block"
     }
   }
 }

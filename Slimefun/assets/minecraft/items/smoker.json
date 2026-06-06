@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"AUTO_DRIER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/auto_drier"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "AUTO_DRIER"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:energy/auto_drier"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "AUTO_BREWER"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"AUTO_BREWER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/auto_brewer"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:energy/auto_brewer"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"WARP_PAD"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "WARP_PAD"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "fluffymachines:misc/warp_pad"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BIG_FLUFFY_BARREL"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:barrels/big_fluffy_barrel"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "BIG_FLUFFY_BARREL"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "fluffymachines:barrels/big_fluffy_barrel"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "block/smoker"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/smoker"
     }
   }
 }

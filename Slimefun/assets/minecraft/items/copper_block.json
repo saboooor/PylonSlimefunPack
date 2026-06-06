@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_COPPER_SINGULARITY"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:singularities/copper_singularity"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "IE_COPPER_SINGULARITY"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "infinityexpansion2:singularities/copper_singularity"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/copper_block"
     }

@@ -1,69 +1,118 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_COAL"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_coal"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_CARD_COAL"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:machine_cards/card_coal"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "SUPREME_CARD_IRON"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_IRON"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_iron"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "supreme:machine_cards/card_iron"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_COPPER"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "SUPREME_CARD_COPPER"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "supreme:machine_cards/card_copper"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_GOLD"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_gold"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_QUARTZ"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_quartz"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_QUARTZ_BLOCK"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_quartz_block"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_LAPIS"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_lapis"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_REDSTONE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_redstone"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "SUPREME_CARD_GOLD"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "supreme:machine_cards/card_gold"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "SUPREME_CARD_QUARTZ"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "supreme:machine_cards/card_quartz"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "SUPREME_CARD_QUARTZ_BLOCK"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "supreme:machine_cards/card_quartz_block"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "SUPREME_CARD_LAPIS"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "supreme:machine_cards/card_lapis"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "component",
+                  "predicate": "custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "SUPREME_CARD_REDSTONE"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "supreme:machine_cards/card_redstone"
+                  },
+                  "on_false": {
+                    "type": "model",
+                    "model": "item/music_disc_13"
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/music_disc_13"
     }
   }
 }

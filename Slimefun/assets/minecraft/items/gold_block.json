@@ -1,69 +1,118 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GOLD_24K_BLOCK"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/miscellaneous/gold_24k_block"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GOLD_24K_BLOCK"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:miscellaneous/gold_24k_block"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GOLD_SINGULARITY"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GOLD_SINGULARITY"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:singularities/gold_singularity"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "infinityexpansion:singularities/gold_singularity"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BLOCK_CAST_NICE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "BLOCK_CAST_NICE"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "slimetinker:materials/blocks/block_cast_nice"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BLOCK_CAST_ANNIVERSARIUM"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/blocks/block_cast_anniversarium"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_GOLD_SINGULARITY"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:singularities/gold_singularity"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_AURUM_PLATE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_aurum_plate"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_MANGANESE_PLATE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_manganese_plate"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_PLATINUM_PLATE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_platinum_plate"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "BLOCK_CAST_ANNIVERSARIUM"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimetinker:materials/blocks/block_cast_anniversarium"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "IE_GOLD_SINGULARITY"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "infinityexpansion2:singularities/gold_singularity"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "minecraft:component",
+              "predicate": "minecraft:custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "SUPREME_AURUM_PLATE"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "supreme:components/supreme_aurum_plate"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "minecraft:component",
+                "predicate": "minecraft:custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "SUPREME_MANGANESE_PLATE"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "supreme:components/supreme_manganese_plate"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "minecraft:component",
+                  "predicate": "minecraft:custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "SUPREME_PLATINUM_PLATE"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "supreme:components/supreme_platinum_plate"
+                  },
+                  "on_false": {
+                    "type": "model",
+                    "model": "block/gold_block"
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/gold_block"
     }
   }
 }

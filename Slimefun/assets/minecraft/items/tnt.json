@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"NUCLEAR_BOMB"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:explosives/nuclear_bomb"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "NUCLEAR_BOMB"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefunwarfare:explosives/nuclear_bomb"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/tnt"
     }

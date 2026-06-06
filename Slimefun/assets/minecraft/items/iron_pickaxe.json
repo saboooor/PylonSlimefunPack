@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"PICKAXE_OF_CONTAINMENT"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/tools/pickaxe_of_containment"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "PICKAXE_OF_CONTAINMENT"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:tools/pickaxe_of_containment"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "HERCULES_PICKAXE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"HERCULES_PICKAXE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/tools/hercules_pickaxe"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:tools/hercules_pickaxe"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"COBALT_PICKAXE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "COBALT_PICKAXE"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/tools/cobalt_pickaxe"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLIMBING_PICK"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/tools/climbing_pick"
+          "model": "slimefun:tools/cobalt_pickaxe"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "CLIMBING_PICK"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:tools/climbing_pick"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "item/iron_pickaxe"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/iron_pickaxe"
     }
   }
 }

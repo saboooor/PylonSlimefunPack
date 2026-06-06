@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"MAGICAL_GLASS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_items/magical_glass"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "MAGICAL_GLASS"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:magical_items/magical_glass"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/glass_pane"
     }

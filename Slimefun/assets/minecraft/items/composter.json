@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"MINI_FLUFFY_BARREL"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:barrels/mini_fluffy_barrel"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "MINI_FLUFFY_BARREL"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "fluffymachines:barrels/mini_fluffy_barrel"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/composter"
     }

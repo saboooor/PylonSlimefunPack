@@ -1,90 +1,160 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SIFTED_ORE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/miscellaneous/sifted_ore"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SIFTED_ORE"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:miscellaneous/sifted_ore"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "IRON_DUST"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IRON_DUST"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/resources/dusts/iron_dust"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:resources/dusts/iron_dust"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"LEAD_DUST"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "LEAD_DUST"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/resources/dusts/lead_dust"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CRUSHED_ORE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/miscellaneous/crushed_ore"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"PULVERIZED_ORE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/miscellaneous/pulverized_ore"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"PURE_ORE_CLUSTER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/miscellaneous/pure_ore_cluster"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ESSENCE_OF_AFTERLIFE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_items/essence_of_afterlife"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"VOID_DUST"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:materials/void_dust"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ARSENIC"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:explosives/arsenic"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_VOID_DUST"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:materials/void_dust"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_THORNIUM_DUST"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_thornium_dust"
+          "model": "slimefun:resources/dusts/lead_dust"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "CRUSHED_ORE"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:miscellaneous/crushed_ore"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "PULVERIZED_ORE"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "slimefun:miscellaneous/pulverized_ore"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "minecraft:component",
+              "predicate": "minecraft:custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "PURE_ORE_CLUSTER"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "slimefun:miscellaneous/pure_ore_cluster"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "minecraft:component",
+                "predicate": "minecraft:custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "ESSENCE_OF_AFTERLIFE"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "slimefun:magical_items/essence_of_afterlife"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "minecraft:component",
+                  "predicate": "minecraft:custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "VOID_DUST"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "infinityexpansion:materials/void_dust"
+                  },
+                  "on_false": {
+                    "type": "minecraft:condition",
+                    "property": "minecraft:component",
+                    "predicate": "minecraft:custom_data",
+                    "value": {
+                      "PublicBukkitValues": {
+                        "slimefun:slimefun_item": "ARSENIC"
+                      }
+                    },
+                    "on_true": {
+                      "type": "model",
+                      "model": "slimefunwarfare:explosives/arsenic"
+                    },
+                    "on_false": {
+                      "type": "minecraft:condition",
+                      "property": "minecraft:component",
+                      "predicate": "minecraft:custom_data",
+                      "value": {
+                        "PublicBukkitValues": {
+                          "slimefun:slimefun_item": "IE_VOID_DUST"
+                        }
+                      },
+                      "on_true": {
+                        "type": "model",
+                        "model": "infinityexpansion2:materials/void_dust"
+                      },
+                      "on_false": {
+                        "type": "minecraft:condition",
+                        "property": "minecraft:component",
+                        "predicate": "minecraft:custom_data",
+                        "value": {
+                          "PublicBukkitValues": {
+                            "slimefun:slimefun_item": "SUPREME_THORNIUM_DUST"
+                          }
+                        },
+                        "on_true": {
+                          "type": "model",
+                          "model": "supreme:components/supreme_thornium_dust"
+                        },
+                        "on_false": {
+                          "type": "model",
+                          "model": "item/gunpowder"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/gunpowder"
     }
   }
 }

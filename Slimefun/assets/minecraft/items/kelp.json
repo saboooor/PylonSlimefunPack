@@ -1,48 +1,76 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_BASIL"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_basil"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_BASIL"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_basil"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "CLT_CURRY_LEAF"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_CURRY_LEAF"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_curry_leaf"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "cultivation:products/clt_curry_leaf"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_KAFFIR_LIME"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CLT_KAFFIR_LIME"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "cultivation:products/clt_kaffir_lime"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_SPINACH"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_spinach"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_RUNNER_BEANS"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_runner_beans"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "CLT_SPINACH"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "cultivation:products/clt_spinach"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "CLT_RUNNER_BEANS"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "cultivation:products/clt_runner_beans"
+            },
+            "on_false": {
+              "type": "model",
+              "model": "item/kelp"
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/kelp"
     }
   }
 }

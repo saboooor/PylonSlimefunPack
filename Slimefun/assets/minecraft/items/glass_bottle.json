@@ -1,27 +1,34 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"JUICER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/basic_machines/juicer"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "JUICER"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:basic_machines/juicer"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "FLASK_OF_KNOWLEDGE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"FLASK_OF_KNOWLEDGE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_gadgets/flask_of_knowledge"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:magical_gadgets/flask_of_knowledge"
+      },
+      "on_false": {
+        "type": "model",
+        "model": "item/glass_bottle"
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/glass_bottle"
     }
   }
 }

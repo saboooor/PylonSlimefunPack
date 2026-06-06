@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RED_BEANS"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_red_beans"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_RED_BEANS"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_red_beans"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/cocoa_beans"
     }

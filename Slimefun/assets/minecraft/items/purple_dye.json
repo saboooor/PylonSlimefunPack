@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"STRANGE_NETHER_GOO"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_items/strange_nether_goo"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "STRANGE_NETHER_GOO"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:magical_items/strange_nether_goo"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "NITROGEN_TRIIDIDE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"NITROGEN_TRIIDIDE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:explosives/nitrogen_triiodide"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefunwarfare:explosives/nitrogen_triiodide"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_LAVENDER"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CLT_LAVENDER"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "cultivation:products/clt_lavender"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_SYNTHETIC_AMETHYST"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_synthetic_amethyst"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "SUPREME_SYNTHETIC_AMETHYST"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "supreme:components/supreme_synthetic_amethyst"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "item/purple_dye"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/purple_dye"
     }
   }
 }

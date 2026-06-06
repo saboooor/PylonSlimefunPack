@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_MARJORAM"}},
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_marjoram"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CLT_MARJORAM"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "cultivation:products/clt_marjoram"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/dark_oak_leaves",
       "tints": [

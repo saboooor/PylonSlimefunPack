@@ -1,57 +1,62 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"GN_ASPARAGUS"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_asparagus"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_ASPARAGUS"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_asparagus"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "CLT_CELERY"
         }
       },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"CLT_CELERY"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_celery"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "cultivation:products/clt_celery"
       },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"CLT_COURGETTE"
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CLT_COURGETTE"
           }
         },
-        "model": {
+        "on_true": {
           "type": "model",
           "model": "cultivation:products/clt_courgette"
-        }
-      },
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"CLT_CUCUMBER"
-          }
         },
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_cucumber"
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "CLT_CUCUMBER"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "cultivation:products/clt_cucumber"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "item/bamboo"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/bamboo"
     }
   }
 }

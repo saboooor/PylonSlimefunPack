@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"TOOL_SHOVEL_DUMMY"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:tool_building_guide/tool_shovel_dummy"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "TOOL_SHOVEL_DUMMY"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimetinker:tool_building_guide/tool_shovel_dummy"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/stone_shovel"
     }

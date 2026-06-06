@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"REACTOR_ACCESS_PORT"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/cargo/reactor_access_port"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "REACTOR_ACCESS_PORT"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:cargo/reactor_access_port"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/cyan_terracotta"
     }

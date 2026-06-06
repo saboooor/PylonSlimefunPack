@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_RUSTLESS_MACHINE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:components/supreme_rustless_machine"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_RUSTLESS_MACHINE"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:components/supreme_rustless_machine"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/dead_brain_coral_block"
     }

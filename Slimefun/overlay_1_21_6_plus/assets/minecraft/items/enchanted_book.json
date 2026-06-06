@@ -1,56 +1,89 @@
 {
-  "model": {
-    "type": "minecraft:select",
+  "model": {    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "fallback": {
-      "type": "model",
-      "model": "item/enchanted_book"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_guide_mode": "SURVIVAL_MODE"
+      }
     },
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_guide_mode":"SURVIVAL_MODE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gui/slimefun_guide"
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:gui/slimefun_guide"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_guide_mode": "CHEAT_MODE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_guide_mode":"CHEAT_MODE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gui/slimefun_cheat"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:gui/slimefun_cheat"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"_UI_BACK"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "_UI_BACK"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/gui/_ui_back"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"TOME_OF_KNOWLEDGE_SHARING"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/magical_gadgets/tome_of_knowledge_sharing"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ENDER_FLAME"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:materials/ender_flame"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_ENDER_FLAME"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:tools/ender_flame"
+          "model": "slimefun:gui/_ui_back"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "TOME_OF_KNOWLEDGE_SHARING"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:magical_gadgets/tome_of_knowledge_sharing"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "ENDER_FLAME"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "infinityexpansion:materials/ender_flame"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "minecraft:component",
+              "predicate": "minecraft:custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "IE_ENDER_FLAME"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "infinityexpansion2:tools/ender_flame"
+              },
+              "on_false": {
+                "type": "model",
+                "model": "item/enchanted_book"
+              }
+            }
+          }
         }
       }
-    ]
-  },
-  "oversized_in_gui": true
+    }
+  }
 }

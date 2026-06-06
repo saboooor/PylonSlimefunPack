@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"TINKERS_SWAPPING_STATION"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:workstations/tinkers_swapping_station"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "TINKERS_SWAPPING_STATION"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimetinker:workstations/tinkers_swapping_station"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/loom"
     }

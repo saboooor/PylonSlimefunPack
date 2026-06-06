@@ -1,22 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {
-          "PublicBukkitValues":{
-            "slimefun:slimefun_item":"CLT_PARSLEY"
-          }
-        },
-        "model": {
-          "type": "model",
-          "model": "cultivation:products/clt_parsley"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "CLT_PARSLEY"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "cultivation:products/clt_parsley"
+    },
+    "on_false": {
       "type": "model",
       "model": "minecraft:block/acacia_leaves",
       "tints": [

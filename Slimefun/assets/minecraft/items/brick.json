@@ -1,123 +1,230 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"BRONZE_INGOT"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/resources/ingots/bronze_ingot"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"COPPER_INGOT"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/resources/ingots/copper_ingot"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"REDSTONE_ALLOY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/resources/ingots/redstone_alloy"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CHRISTMAS_CARAMEL"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/christmas/christmas_caramel"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"ADAMANTITE"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:materials/adamantite"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"MAGSTEEL"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:materials/magsteel"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SMALL_PORTABLE_CHARGER"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:portable_chargers/small_portable_charger"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"HOLMIUM_INGOT"}},
-        "model": {
-          "type": "model",
-          "model": "slimefunwarfare:resources/holmium_ingot"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SEARED_BRICK"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/seared_brick"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INGOT_CAST_BOOMERITE"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/ingots/ingot_cast_boomerite"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INGOT_CAST_FONDNESS"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/ingots/ingot_cast_fondness"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INGOT_CAST_DEVOTION"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/ingots/ingot_cast_devotion"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INGOT_CAST_PASSION"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/ingots/ingot_cast_passion"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INGOT_CAST_LOVE"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:materials/ingots/ingot_cast_love"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_ADAMANTITE"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:materials/adamantite"}
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_MAGSTEEL"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:materials/magsteel"}
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "BRONZE_INGOT"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
       "type": "model",
-      "model": "item/brick"
+      "model": "slimefun:resources/ingots/bronze_ingot"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "COPPER_INGOT"
+        }
+      },
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:resources/ingots/copper_ingot"
+      },
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "REDSTONE_ALLOY"
+          }
+        },
+        "on_true": {
+          "type": "model",
+          "model": "slimefun:resources/ingots/redstone_alloy"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "CHRISTMAS_CARAMEL"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "slimefun:christmas/christmas_caramel"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "ADAMANTITE"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "infinityexpansion:materials/adamantite"
+            },
+            "on_false": {
+              "type": "minecraft:condition",
+              "property": "component",
+              "predicate": "custom_data",
+              "value": {
+                "PublicBukkitValues": {
+                  "slimefun:slimefun_item": "MAGSTEEL"
+                }
+              },
+              "on_true": {
+                "type": "model",
+                "model": "infinityexpansion:materials/magsteel"
+              },
+              "on_false": {
+                "type": "minecraft:condition",
+                "property": "component",
+                "predicate": "custom_data",
+                "value": {
+                  "PublicBukkitValues": {
+                    "slimefun:slimefun_item": "SMALL_PORTABLE_CHARGER"
+                  }
+                },
+                "on_true": {
+                  "type": "model",
+                  "model": "fluffymachines:portable_chargers/small_portable_charger"
+                },
+                "on_false": {
+                  "type": "minecraft:condition",
+                  "property": "component",
+                  "predicate": "custom_data",
+                  "value": {
+                    "PublicBukkitValues": {
+                      "slimefun:slimefun_item": "HOLMIUM_INGOT"
+                    }
+                  },
+                  "on_true": {
+                    "type": "model",
+                    "model": "slimefunwarfare:resources/holmium_ingot"
+                  },
+                  "on_false": {
+                    "type": "minecraft:condition",
+                    "property": "component",
+                    "predicate": "custom_data",
+                    "value": {
+                      "PublicBukkitValues": {
+                        "slimefun:slimefun_item": "SEARED_BRICK"
+                      }
+                    },
+                    "on_true": {
+                      "type": "model",
+                      "model": "slimetinker:materials/seared_brick"
+                    },
+                    "on_false": {
+                      "type": "minecraft:condition",
+                      "property": "component",
+                      "predicate": "custom_data",
+                      "value": {
+                        "PublicBukkitValues": {
+                          "slimefun:slimefun_item": "INGOT_CAST_BOOMERITE"
+                        }
+                      },
+                      "on_true": {
+                        "type": "model",
+                        "model": "slimetinker:materials/ingots/ingot_cast_boomerite"
+                      },
+                      "on_false": {
+                        "type": "minecraft:condition",
+                        "property": "component",
+                        "predicate": "custom_data",
+                        "value": {
+                          "PublicBukkitValues": {
+                            "slimefun:slimefun_item": "INGOT_CAST_FONDNESS"
+                          }
+                        },
+                        "on_true": {
+                          "type": "model",
+                          "model": "slimetinker:materials/ingots/ingot_cast_fondness"
+                        },
+                        "on_false": {
+                          "type": "minecraft:condition",
+                          "property": "component",
+                          "predicate": "custom_data",
+                          "value": {
+                            "PublicBukkitValues": {
+                              "slimefun:slimefun_item": "INGOT_CAST_DEVOTION"
+                            }
+                          },
+                          "on_true": {
+                            "type": "model",
+                            "model": "slimetinker:materials/ingots/ingot_cast_devotion"
+                          },
+                          "on_false": {
+                            "type": "minecraft:condition",
+                            "property": "component",
+                            "predicate": "custom_data",
+                            "value": {
+                              "PublicBukkitValues": {
+                                "slimefun:slimefun_item": "INGOT_CAST_PASSION"
+                              }
+                            },
+                            "on_true": {
+                              "type": "model",
+                              "model": "slimetinker:materials/ingots/ingot_cast_passion"
+                            },
+                            "on_false": {
+                              "type": "minecraft:condition",
+                              "property": "component",
+                              "predicate": "custom_data",
+                              "value": {
+                                "PublicBukkitValues": {
+                                  "slimefun:slimefun_item": "INGOT_CAST_LOVE"
+                                }
+                              },
+                              "on_true": {
+                                "type": "model",
+                                "model": "slimetinker:materials/ingots/ingot_cast_love"
+                              },
+                              "on_false": {
+                                "type": "minecraft:condition",
+                                "property": "component",
+                                "predicate": "custom_data",
+                                "value": {
+                                  "PublicBukkitValues": {
+                                    "slimefun:slimefun_item": "IE_ADAMANTITE"
+                                  }
+                                },
+                                "on_true": {
+                                  "type": "model",
+                                  "model": "infinityexpansion2:materials/adamantite"
+                                },
+                                "on_false": {
+                                  "type": "minecraft:condition",
+                                  "property": "component",
+                                  "predicate": "custom_data",
+                                  "value": {
+                                    "PublicBukkitValues": {
+                                      "slimefun:slimefun_item": "IE_MAGSTEEL"
+                                    }
+                                  },
+                                  "on_true": {
+                                    "type": "model",
+                                    "model": "infinityexpansion2:materials/magsteel"
+                                  },
+                                  "on_false": {
+                                    "type": "model",
+                                    "model": "item/brick"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

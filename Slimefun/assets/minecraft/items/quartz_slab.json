@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"HOLOGRAM_PROJECTOR"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_gadgets/hologram_projector"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "HOLOGRAM_PROJECTOR"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:technical_gadgets/hologram_projector"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/quartz_slab"
     }

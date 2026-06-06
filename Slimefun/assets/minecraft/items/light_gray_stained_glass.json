@@ -1,34 +1,48 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"HARDENED_GLASS"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/technical_components/hardened_glass"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "HARDENED_GLASS"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:technical_components/hardened_glass"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "HEATED_PRESSURE_CHAMBER"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"HEATED_PRESSURE_CHAMBER"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/energy/heated_pressure_chamber"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:energy/heated_pressure_chamber"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"HEATED_PRESSURE_CHAMBER_2"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "HEATED_PRESSURE_CHAMBER_2"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/energy/heated_pressure_chamber_2"
+          "model": "slimefun:energy/heated_pressure_chamber_2"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "block/light_gray_stained_glass"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/light_gray_stained_glass"
     }
   }
 }

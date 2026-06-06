@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GOLD_PAN"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/tools/gold_pan"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GOLD_PAN"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:tools/gold_pan"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "NETHER_GOLD_PAN"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"NETHER_GOLD_PAN"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/tools/nether_gold_pan"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:tools/nether_gold_pan"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"AUTOMATED_PANNING_MACHINE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "AUTOMATED_PANNING_MACHINE"
+          }
+        },
+        "on_true": {
           "type": "model",
-          "model": "slimefun:slimefun/basic_machines/automated_panning_machine"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_MORTAR_AND_PESTLE"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:tools/gn_mortar_and_pestle"
+          "model": "slimefun:basic_machines/automated_panning_machine"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "GN_MORTAR_AND_PESTLE"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "gastronomicon:tools/gn_mortar_and_pestle"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "item/bowl"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/bowl"
     }
   }
 }

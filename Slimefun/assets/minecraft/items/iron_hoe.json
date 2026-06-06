@@ -1,48 +1,76 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"REINFORCED_TREE_TAP"}},
-        "model": {
-          "type": "model",
-          "model": "slimy_tree_taps:treetap/reinforced_tree_tap"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "REINFORCED_TREE_TAP"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimy_tree_taps:treetap/reinforced_tree_tap"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "SIMPLE_WRENCH"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SIMPLE_WRENCH"}},
-        "model": {
-          "type": "model",
-          "model": "simpleutils:simple_wrench"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "simpleutils:simple_wrench"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SCYTHE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "SCYTHE"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "fluffymachines:tools/scythe"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_PEELER"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:tools/gn_peeler"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_STEEL_SICKLE"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:tools/gn_steel_sickle"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "GN_PEELER"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "gastronomicon:tools/gn_peeler"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "minecraft:component",
+            "predicate": "minecraft:custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "GN_STEEL_SICKLE"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "gastronomicon:tools/gn_steel_sickle"
+            },
+            "on_false": {
+              "type": "model",
+              "model": "item/iron_hoe"
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/iron_hoe"
     }
   }
 }

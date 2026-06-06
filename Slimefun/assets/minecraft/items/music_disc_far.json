@@ -1,48 +1,76 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_DIAMOND"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_diamond"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SUPREME_CARD_DIAMOND"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "supreme:machine_cards/card_diamond"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "SUPREME_CARD_EMERALD"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_EMERALD"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_emerald"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "supreme:machine_cards/card_emerald"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_BLAZE_ROD"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "SUPREME_CARD_BLAZE_ROD"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "supreme:machine_cards/card_blaze_rod"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_NETHERITE"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_netherite"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SUPREME_CARD_AMETHYST"}},
-        "model": {
-          "type": "model",
-          "model": "supreme:machine_cards/card_amethyst"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "SUPREME_CARD_NETHERITE"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "supreme:machine_cards/card_netherite"
+          },
+          "on_false": {
+            "type": "minecraft:condition",
+            "property": "component",
+            "predicate": "custom_data",
+            "value": {
+              "PublicBukkitValues": {
+                "slimefun:slimefun_item": "SUPREME_CARD_AMETHYST"
+              }
+            },
+            "on_true": {
+              "type": "model",
+              "model": "supreme:machine_cards/card_amethyst"
+            },
+            "on_false": {
+              "type": "model",
+              "model": "item/music_disc_far"
+            }
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/music_disc_far"
     }
   }
 }

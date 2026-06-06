@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"RABBIT_JERKY"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/food/rabbit_jerky"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "RABBIT_JERKY"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:food/rabbit_jerky"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/cooked_rabbit"
     }

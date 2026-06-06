@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"DIAMOND_SINGULARITY"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:singularities/diamond_singularity"
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "DIAMOND_SINGULARITY"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "infinityexpansion:singularities/diamond_singularity"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "component",
+      "predicate": "custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "INFINITE_MACHINE_CORE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"INFINITE_MACHINE_CORE"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion:materials/infinite_machine_core"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "infinityexpansion:materials/infinite_machine_core"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_INFINITY_MACHINE_CORE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "component",
+        "predicate": "custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "IE_INFINITY_MACHINE_CORE"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "infinityexpansion2:materials/infinity_machine_core"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_DIAMOND_SINGULARITY"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:singularities/diamond_singularity"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "component",
+          "predicate": "custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "IE_DIAMOND_SINGULARITY"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "infinityexpansion2:singularities/diamond_singularity"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "block/diamond_block"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "block/diamond_block"
     }
   }
 }

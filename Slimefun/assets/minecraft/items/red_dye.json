@@ -1,34 +1,48 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_CRAB"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:ingredient/gn_crab"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_CRAB"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:ingredient/gn_crab"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_RED_BEAN_PASTE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_RED_BEAN_PASTE"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:food/gn_red_bean_paste"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:food/gn_red_bean_paste"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"CLT_MACE"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "CLT_MACE"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "cultivation:products/clt_mace"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "item/red_dye"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/red_dye"
     }
   }
 }

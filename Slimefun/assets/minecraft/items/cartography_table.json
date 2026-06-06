@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"TINKERS_REPAIR_BENCH"}},
-        "model": {
-          "type": "model",
-          "model": "slimetinker:workstations/tinkers_repair_bench"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "TINKERS_REPAIR_BENCH"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimetinker:workstations/tinkers_repair_bench"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/cartography_table"
     }

@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_BAKING_TRAY"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:tools/gn_baking_tray"
-        }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_BAKING_TRAY"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:tools/gn_baking_tray"
+    },
+    "on_false": {
       "type": "model",
       "model": "block/light_gray_carpet"
     }

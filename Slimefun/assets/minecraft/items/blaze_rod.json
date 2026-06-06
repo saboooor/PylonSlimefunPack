@@ -1,18 +1,18 @@
 {
   "model": {
-    "type": "select",
+    "type": "minecraft:condition",
     "property": "component",
-    "component": "custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"WARP_PAD_CONFIGURATOR"}},
-        "model": {
-          "type": "model",
-          "model": "fluffymachines:misc/warp_pad_configurator"
-        }
+    "predicate": "custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "WARP_PAD_CONFIGURATOR"
       }
-    ],
-    "fallback": {
+    },
+    "on_true": {
+      "type": "model",
+      "model": "fluffymachines:misc/warp_pad_configurator"
+    },
+    "on_false": {
       "type": "model",
       "model": "item/blaze_rod"
     }

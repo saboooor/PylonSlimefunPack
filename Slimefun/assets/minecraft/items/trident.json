@@ -1,43 +1,43 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"SOULBOUND_TRIDENT"}},
-        "model": {
-          "type": "select",
-          "property": "minecraft:display_context",
-          "cases": [
-            {
-              "when":[
-                "gui",
-                "ground",
-                "fixed"
-              ],
-              "model":{
-                "type": "model",
-                "model": "slimefun:slimefun/weapons/soulbound_trident_icon"
-              }
-            }
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "SOULBOUND_TRIDENT"
+      }
+    },
+    "on_true": {
+      "type": "select",
+      "property": "minecraft:display_context",
+      "cases": [
+        {
+          "when": [
+            "gui",
+            "ground",
+            "fixed"
           ],
-          "fallback":{
-            "type": "condition",
-            "property": "using_item",
-            "on_false": {
-              "type": "model",
-              "model": "slimefun:slimefun/weapons/soulbound_trident"
-            },
-            "on_true": {
-              "type": "model",
-              "model": "slimefun:slimefun/weapons/soulbound_trident_throwing"
-            }
+          "model": {
+            "type": "model",
+            "model": "slimefun:weapons/soulbound_trident_icon"
           }
         }
+      ],
+      "fallback": {
+        "type": "condition",
+        "property": "using_item",
+        "on_false": {
+          "type": "model",
+          "model": "slimefun:weapons/soulbound_trident"
+        },
+        "on_true": {
+          "type": "model",
+          "model": "slimefun:weapons/soulbound_trident_throwing"
+        }
       }
-    ],
-    "fallback": {
+    },
+    "on_false": {
       "type": "minecraft:select",
       "property": "minecraft:display_context",
       "cases": [
@@ -73,4 +73,4 @@
       }
     }
   }
-}   
+}

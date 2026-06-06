@@ -1,34 +1,48 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"_UI_PREVIOUS_ACTIVE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gui/_ui_previous_active"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "_UI_PREVIOUS_ACTIVE"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "slimefun:gui/_ui_previous_active"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "_UI_NEXT_ACTIVE"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"_UI_NEXT_ACTIVE"}},
-        "model": {
-          "type": "model",
-          "model": "slimefun:slimefun/gui/_ui_next_active"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "slimefun:gui/_ui_next_active"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE__UI_PRODUCING"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "IE__UI_PRODUCING"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "infinityexpansion2:icons/ui_producing"
+        },
+        "on_false": {
+          "type": "model",
+          "model": "item/lime_stained_glass_pane"
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/lime_stained_glass_pane"
     }
   }
 }

@@ -3,6 +3,6 @@
   "author":"Pandicka",
   "textures":{
     "layer0":"infinityexpansion2:materials/oscillator_frame",
-    "layer1":"slimefun:slimefun/resources/dusts/copper_dust"
+    "layer1":"slimefun:resources/dusts/copper_dust"
   }
 }

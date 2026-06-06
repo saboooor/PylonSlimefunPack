@@ -1,41 +1,62 @@
 {
   "model": {
-    "type": "minecraft:select",
+    "type": "minecraft:condition",
     "property": "minecraft:component",
-    "component": "minecraft:custom_data",
-    "cases": [
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_FISHING_NET_I"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:electric_machines/gn_fishing_net_i"
+    "predicate": "minecraft:custom_data",
+    "value": {
+      "PublicBukkitValues": {
+        "slimefun:slimefun_item": "GN_FISHING_NET_I"
+      }
+    },
+    "on_true": {
+      "type": "model",
+      "model": "gastronomicon:electric_machines/gn_fishing_net_i"
+    },
+    "on_false": {
+      "type": "minecraft:condition",
+      "property": "minecraft:component",
+      "predicate": "minecraft:custom_data",
+      "value": {
+        "PublicBukkitValues": {
+          "slimefun:slimefun_item": "GN_FISHING_NET_II"
         }
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_FISHING_NET_II"}},
-        "model": {
-          "type": "model",
-          "model": "gastronomicon:electric_machines/gn_fishing_net_ii"
-        }
+      "on_true": {
+        "type": "model",
+        "model": "gastronomicon:electric_machines/gn_fishing_net_ii"
       },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"GN_FISHING_NET_III"}},
-        "model": {
+      "on_false": {
+        "type": "minecraft:condition",
+        "property": "minecraft:component",
+        "predicate": "minecraft:custom_data",
+        "value": {
+          "PublicBukkitValues": {
+            "slimefun:slimefun_item": "GN_FISHING_NET_III"
+          }
+        },
+        "on_true": {
           "type": "model",
           "model": "gastronomicon:electric_machines/gn_fishing_net_iii"
-        }
-      },
-      {
-        "when": {"PublicBukkitValues":{"slimefun:slimefun_item":"IE_OSCILLATOR_FRAME"}},
-        "model": {
-          "type": "model",
-          "model": "infinityexpansion2:materials/oscillator_frame"
+        },
+        "on_false": {
+          "type": "minecraft:condition",
+          "property": "minecraft:component",
+          "predicate": "minecraft:custom_data",
+          "value": {
+            "PublicBukkitValues": {
+              "slimefun:slimefun_item": "IE_OSCILLATOR_FRAME"
+            }
+          },
+          "on_true": {
+            "type": "model",
+            "model": "infinityexpansion2:materials/oscillator_frame"
+          },
+          "on_false": {
+            "type": "model",
+            "model": "item/iron_bars"
+          }
         }
       }
-    ],
-    "fallback": {
-      "type": "model",
-      "model": "item/iron_bars"
     }
   }
 }
